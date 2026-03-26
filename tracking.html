@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Tracking</title>
+</head>
+<body>
+    <h1>Package Tracking</h1>
+    <form id="trackingForm">
+        <label for="trackingNumber">Enter Tracking Number:</label>
+        <input type="text" id="trackingNumber" name="trackingNumber" required>
+        <button type="submit">Track</button>
+    </form>
+    <div id="statusUpdates"></div>
+
+    <script>
+        const trackingForm = document.getElementById('trackingForm');
+        const statusUpdates = document.getElementById('statusUpdates');
+
+        trackingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const trackingNumber = document.getElementById('trackingNumber').value;
+            // Simulated status updates
+            const updates = [
+                `Tracking Number: ${trackingNumber} - Received at warehouse`,
+                `Tracking Number: ${trackingNumber} - Out for delivery`,
+                `Tracking Number: ${trackingNumber} - Delivered`
+            ];
+            // Display updates
+            statusUpdates.innerHTML = updates.join('<br/>');
+        });
+    </script>
+</body>
+</html>
